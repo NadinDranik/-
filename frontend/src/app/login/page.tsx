@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -22,7 +24,7 @@ export default function LoginPage() {
         await api.register(email, password, name || undefined);
       }
       await api.login(email, password);
-      router.push("/");
+      router.push("/chat");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Ошибка");
     } finally {
@@ -31,11 +33,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-brand-900 to-brand-700">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-brand-900 to-brand-700">
+      <SiteHeader variant="dark" />
+      <div className="flex flex-1 items-center justify-center px-4 py-12">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-slate-900">Expert17025</h1>
-          <p className="text-slate-500 mt-1">ИИ-эксперт по аккредитации лабораторий</p>
+          <h1 className="text-2xl font-bold text-slate-900">Вход в систему</h1>
+          <p className="text-slate-500 mt-1">Expert17025 — аккредитация лабораторий</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">
@@ -80,12 +84,20 @@ export default function LoginPage() {
         <p className="text-center mt-6 text-sm text-slate-500">
           {isRegister ? "Уже есть аккаунт?" : "Нет аккаунта?"}{" "}
           <button
+            type="button"
             onClick={() => setIsRegister(!isRegister)}
             className="text-brand-600 hover:underline"
           >
             {isRegister ? "Войти" : "Зарегистрироваться"}
           </button>
         </p>
+
+        <p className="text-center mt-4 text-sm">
+          <Link href="/" className="text-slate-400 hover:text-slate-600">
+            ← На главную
+          </Link>
+        </p>
+      </div>
       </div>
     </div>
   );
