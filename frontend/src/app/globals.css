@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f8fafc;
+  --sidebar: #1e3a5f;
+  --accent: #2563eb;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+.prose-chat {
+  @apply prose prose-slate max-w-none prose-headings:text-slate-800 prose-a:text-brand-600;
+}
+
+.prose-chat table {
+  @apply w-full border-collapse text-sm;
+}
+
+.prose-chat th,
+.prose-chat td {
+  @apply border border-slate-200 px-3 py-2;
+}
+
+.prose-chat th {
+  @apply bg-slate-100 font-semibold;
+}

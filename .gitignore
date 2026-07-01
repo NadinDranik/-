@@ -1,0 +1,67 @@
+# --- Секреты и локальная конфигурация ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- База данных (личные данные, документы, ответы) ---
+*.db
+*.db-shm
+*.db-wal
+backend/data/*
+!backend/data/.gitkeep
+
+# --- Загруженные документы пользователей ---
+backend/uploads/**
+!backend/uploads/
+!backend/uploads/.gitkeep
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.Python
+*.so
+
+# Офлайн-пакеты (~40 MB, скачиваются через setup.bat)
+backend/wheels/
+
+# --- Node.js / Frontend ---
+node_modules/
+.next/
+out/
+.npm
+*.tsbuildinfo
+
+# --- Логи и временные файлы ---
+*.log
+setup-log.txt
+telegram-import-log.txt
+backend/setup-log.txt
+backend/telegram-import-log.txt
+
+# --- Сборка и кэш ---
+dist/
+build/
+.cache/
+coverage/
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- IDE и ОС ---
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Docker (локальные тома не в репозитории) ---
+docker-data/
