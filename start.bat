@@ -13,6 +13,7 @@ if exist node_modules (
 echo.
 echo Backend:  http://localhost:8000
 echo Swagger:  http://localhost:8000/docs
-echo Frontend: http://localhost:3000
+echo Frontend: http://localhost:3000  (главная)
+echo Чат:      http://localhost:3000/chat
 echo Вход: admin@expert17025.ru / admin12345
 pause
